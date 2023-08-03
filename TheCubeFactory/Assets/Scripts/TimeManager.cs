@@ -9,12 +9,15 @@ public class TimeManager : MonoBehaviour
     public int month;
 
     private float elapsedTime;
-
+    void Start()
+    {
+        Debug.LogFormat("New Day: {0}/{1}", day, month);
+    }
     void Update()
     {
         elapsedTime += Time.deltaTime * Time.timeScale; // Zaman ölçeğine göre geçen zamanı hesapla
 
-        if (elapsedTime >= 600f) // Her 10 dakikada bir kontrol et
+        if (elapsedTime >= 60f) // Her 10 dakikada bir kontrol et
         {
             elapsedTime = 0f; // Zamanlayıcıyı sıfırla
 
