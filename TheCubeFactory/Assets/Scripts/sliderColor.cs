@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class management : MonoBehaviour
+public class sliderColor : MonoBehaviour
 {
 
     public TextMeshProUGUI costText; // Reference to the TextMeshProUGUI component.
@@ -20,23 +20,24 @@ public class management : MonoBehaviour
     public void SetCostText(float value)
     {
         
-        costText.text = "Cost:"+value.ToString();
+        costText.text = "Cost: %"+value.ToString();
 
         if (value >= 1 && value <= 32)
         {
             sliderFill.color = greenColor;
         }
-        else if (value >= 33 && value <= 49)
+        else if (value >= 33 && value <= 74)
         {
             sliderFill.color = yellowColor;
         }
-        else if (value >= 50 && value <= 100)
+        else if (value >= 75 && value <= 100)
         {
             sliderFill.color = redColor;
         }
-
+        
     }
-   
+
+
 
 }
 
