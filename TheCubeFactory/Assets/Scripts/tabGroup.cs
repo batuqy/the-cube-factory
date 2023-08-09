@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+ using UnityEngine.UI;
 public class tabGroup : MonoBehaviour
 {
     public List<tabButton> tabButtons;
@@ -9,6 +9,7 @@ public class tabGroup : MonoBehaviour
     public Sprite tabHover;
     public Sprite tabActive;
     public tabButton selectedTab;
+    public List<GameObject> objectsToSwap;
     public void Subscribe(tabButton button)
     {
         if (tabButtons == null)
@@ -39,6 +40,18 @@ public class tabGroup : MonoBehaviour
         selectedTab = button;
         ResetTabs();
         button.background.sprite = tabActive;
+        int index = button.transform.GetSiblingIndex();
+        for (int i = 0; i < objectsToSwap.Count; i++)
+        {
+            if (i==index)
+            {
+                objectsToSwap[i].SetActive(true);
+            }
+            else
+            {
+                objectsToSwap[i].SetActive(false);
+            }
+        }
     }
     public void ResetTabs()
     {
